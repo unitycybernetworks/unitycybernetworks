@@ -167,7 +167,7 @@ html, body { /* Apply reset to both html and body */
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000; /* Increased z-index to ensure it's on top */
-    right: 0; /* Align dropdown to the right of its button */
+    left: 0; /* Changed from right: 0; to align to the left */
     border-radius: 5px;
     overflow: hidden; /* For rounded corners with inner elements */
     display: none; /* Hidden by default, JavaScript will toggle 'show' class */
