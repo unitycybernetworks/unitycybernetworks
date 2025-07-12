@@ -167,7 +167,7 @@ html, body { /* Apply reset to both html and body */
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000; /* Increased z-index to ensure it's on top */
-    left: 0; /* Changed from right: 0; to align to the LEFT */
+    left: 0; /* This is the correction: Align to the LEFT edge of its parent */
     border-radius: 5px;
     overflow: hidden; /* For rounded corners with inner elements */
     display: none; /* Hidden by default, JavaScript will toggle 'show' class */
@@ -532,29 +532,6 @@ html, body { /* Apply reset to both html and body */
     }
 
     .navbar-header {
-        margin-left: 0; /* Ensures no negative margin interferes */
-    }
-
-    /* Main video section mobile specific styles */
-    .main {
-        height: 60vh; /* Make the main container height responsive to viewport height */
-    }
-    .main-content {
-        padding: 15px;
-        /* Adjusted padding to prevent content from touching edges */
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .main .header2 {
-        font-size: 1.5em;
-        margin-top: 100px; /* Adjusted margin for smaller screens */
-    }
-    .main .para1 {
-        font-size: 0.9em;
-    }
-
-    /* Navbar Header on Mobile */
-    .navbar-header {
         width: 100%; /* Ensure header takes full width on mobile */
         justify-content: space-between; /* Space out logo and hamburger */
     }
@@ -597,13 +574,11 @@ html, body { /* Apply reset to both html and body */
         opacity: 0;
         visibility: hidden;
         box-shadow: none;
-        /* Removed max-height, overflow properties here as fixed position handles it */
     }
     .navbar-collapse.show {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
-        /* Removed max-height, overflow here */
         padding: 10px 0; /* Add some padding inside the menu */
     }
     .nav-links {
@@ -636,14 +611,12 @@ html, body { /* Apply reset to both html and body */
         transform: none; /* Ensure no rotation is applied to this container on mobile */
     }
     .dropdown-menu {
-        /* Removed position: static; to ensure it remains absolute */
         width: 100%; /* Make it take full width of its parent container */
         box-shadow: none; /* Remove shadow for mobile overlay */
         background-color: #333; /* Darker background for better contrast on mobile */
-        right: 0; /* Keep it aligned to the right, relative to its container */
+        left: 0; /* THIS IS THE CORRECTION FOR MOBILE/TABLET VIEWPORTS */
         padding: 0;
         top: 100%; /* Keep it below the button */
-        left: auto; /* Ensure it's not pushed left by default */
         display: none; /* Keep this here as the default */
         transform: none !important; /* CRITICAL: Force no rotation on the menu itself */
     }
