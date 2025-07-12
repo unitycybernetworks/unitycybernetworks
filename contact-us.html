@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Cyber Networks - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="ucn.jpeg">
+    <style>
+        /* General styling for the main section */
+        .main {
+            position: relative;
+            height: 550px; /* You might adjust this height to be fluid with viewport units if needed */
+            width: 100%; /* Make the main container take full width */
+            overflow: hidden;
+        }
+        /* Styling for the background video */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Ensures video fills width */
+            height: 100%; /* Ensures video fills height of its parent */
+            object-fit: cover; /* This is key for filling and responsiveness */
+            z-index: -1;
+        }
+        /* Styling for the main content overlaying the video */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            text-align: left;
+            padding: 20px;
+        }
+        /* Header styling within the main content */
+        .main .header2 {
+            color: yellow;
+            margin-top: 150px;
+        }
+        /* Paragraph styling within the main content */
+        .main .para1 {
+            color: yellow;
+            font-size: larger;
+        }
+
+        /* Contact Form Specific Styles */
+        .contact-section {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px; /* Reduced margin for the paragraph */
+        }
+
+        .contact-section .section-description {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .contact-form-container .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container textarea,
+        .contact-form-container select { /* Added select to styling */
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .contact-form-container textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 120px;
+        }
+
+        .contact-form-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .contact-form-container {
+                padding: 25px;
+            }
+            .contact-section .section-title {
+                font-size: 2em;
+            }
+            .contact-section .section-description {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 40px 15px;
+            }
+            .contact-form-container {
+                padding: 20px;
+            }
+            .contact-section .section-title {
+                font-size: 1.8em;
+            }
+            .contact-section .section-description {
+                font-size: 0.9em;
+            }
+            .main .header2 {
+                margin-top: 100px;
+                font-size: 1.8em;
+            }
+            .main .para1 {
+                font-size: medium;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-header">
+            <div class="logo">
+                <img src="ucn.jpeg" alt="Unity Cyber Networks Logo">
+            </div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarCollapse">
+            <ul class="nav-links">
+                <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">HOME</a></li>
+                <li><a href="about-us.html">ABOUT</a></li>
+                <li><a href="managed-services.html">MANAGED SERVICES</a></li>
+                <li><a href="hosted-services.html">HOSTED SERVICES</a></li>
+                <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn get-started" id="getStartedBtn">GET STARTED</button>
+                <button class="btn help-desk" id="helpDeskBtn">SUPPORT DESK</button>
+
+                <div class="user-dropdown-container">
+                    <button id="loginButton" class="btn login-btn">
+                        <img src="ucn.jpeg" alt="User Icon" class="user-icon"> Log In
+                    </button>
+                    <button id="userDropdownToggle" class="btn user-icon-btn hidden">
+                        <img src="ucn.jpeg" alt="User Icon" class="user-icon">
+                        <span id="loggedInUsername" class="logged-in-username"></span>
+                        <span class="arrow-down"><</span>
+                    <div class="dropdown-menu hidden" id="userDropdownMenu">
+                        <a href="#">Profile</a>
+                        <a href="#">My Orders</a>
+                        <a href="#">My Addresses</a>
+                        <a href="#">My Wallet</a>
+                        <a href="#">My Account</a>
+                        <hr>
+                        <a href="#" id="logoutLink">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="login-form-container">
+                <h2>Login</h2>
+                <div id="loginMessage" class="message-display"></div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-login-btn">Login</button>
+                </form>
+                <p class="mt-20">Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+<!-- Contact Form Section Updated Here -->
+<section class="contact-section">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-description">
+        At UCN, though we're technology-driven, we're also service-led.<br>
+        Our customers are our number one priority, we strive to deliver a service experience that's second to none.
+    </p>
+    <div class="contact-form-container">
+        <form action="#" method="POST"> <!-- Action can be updated to a backend endpoint -->
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="service">Select a Service:</label>
+                <select id="service" name="service">
+                    <option value="selectaservice">Select a Service:</option>
+                    <option value="hosted solutions">Hosted Solutions</option>
+                    <option value="managed solutions">Managed Solutions</option>
+                    <option value="infrastructure">Infrastructure</option>
+                    <option value="networking">Networking</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+    <footer class="footer">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <span>Unity Cyber Networks</span>
+            </div>
+            <p>Your trusted partner in IT solutions, cybersecurity, and managed services. We empower your business with reliable and secure technology.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="managed-services.html">Managed Services</a></li>
+                <li><a href="hosted-services.html">Hosted Services</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="managed-services.html">Managed IT Services</a></li>
+                <li><a href="hosted-services.html">Cloud Hosting</a></li>
+                <li><a href="#">Cyber Security Solutions</a></li>
+                <li><a href="#">Network Infrastructure</a></li>
+                <li><a href="#">Data Backup & Recovery</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>123 Cyber Street, Tech City, TC1 2AB</p>
+            <p>Email: info@unitycybernetworks.com</p>
+            <p>Phone: +123 456 7890</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><img src="facebook-icon.png" alt="Facebook" style="width:24px;height:24px;vertical-align:middle;"></a>
+                <a href="#" aria-label="Twitter"><img src="twitter-icon.png" alt="Twitter" style="width:24px;height:24px;vertical-align:middle;"></a>
+                <a href="#" aria-label="LinkedIn"><img src="linkedin-icon.png" alt="LinkedIn" style="width:24px;height:24px;vertical-align:middle;"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Unity Cyber Networks. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

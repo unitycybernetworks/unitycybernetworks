@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Cyber Networks - About Us</title>
+    <link rel="icon" type="image/x-icon" href="ucn.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add to your style.css */
+
+/* --- Team Section Styling --- */
+.team-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f8f8; /* Light background for the section */
+}
+
+.team-section .section-title {
+    margin-bottom: 40px;
+}
+
+.team-members-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center team member cards */
+    gap: 30px; /* Space between cards */
+    max-width: 1200px; /* Max width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.team-member-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    flex: 1 1 calc(50% - 20px); /* Two columns on larger screens, accounting for gap */
+    min-width: 280px; /* Minimum width for a card before wrapping */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-photo {
+    width: 120px; /* Size of the profile picture */
+    height: 120px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    margin-bottom: 20px;
+    border: 3px solid #5bc0de; /* Border around the image */
+}
+
+.team-member-card h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.team-member-title {
+    font-size: 1em;
+    color: #5bc0de;
+    margin-bottom: 15px;
+}
+
+.team-member-bio {
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for team section */
+@media (max-width: 768px) {
+    .team-member-card {
+        flex: 1 1 90%; /* Single column on mobile */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-header">
+            <div class="logo">
+                <img src="ucn.jpeg" alt="Unity Cyber Networks Logo">
+            </div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarCollapse">
+            <ul class="nav-links">
+                 <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">HOME</a></li>
+                <li><a href="about-us.html">ABOUT</a></li>
+                <li><a href="managed-services.html">MANAGED SERVICES</a></li>
+                <li><a href="hosted-services.html">HOSTED SERVICES</a></li>
+                <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn get-started" id="getStartedBtn">GET STARTED</button>
+                <button class="btn help-desk" id="helpDeskBtn">HELP DESK</button>
+                <div class="user-dropdown-container">
+                    <button id="loginButton" class="btn login-btn">
+                        <img src="ucn.jpeg" alt="User Icon" class="user-icon"> Log In
+                    </button>
+                    <button id="userDropdownToggle" class="btn user-icon-btn hidden">
+                        <img src="ucn.jpeg" alt="User Icon" class="user-icon">
+                        <span id="loggedInUsername" class="logged-in-username"></span>
+                        <span class="arrow-down"><
+                    <div class="dropdown-menu hidden" id="userDropdownMenu">
+                        <a href="#">Profile</a>
+                        <a href="#">My Orders</a>
+                        <a href="#">My Addresses</a>
+                        <a href="#">My Wallet</a>
+                        <a href="#">My Account</a>
+                        <hr>
+                        <a href="#" id="logoutLink">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="login-form-container">
+                <h2>Login</h2>
+                <div id="loginMessage" class="message-display"></div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-login-btn">Login</button>
+                </form>
+                <p class="mt-20">Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <center>
+        <main class="about-page-content">
+            <section class="about-intro">
+                <h2 class="about-subtitle">Our Journey Towards Digital Excellence</h2>
+                <p>Unity Cyber Networks embarked on its journey with a clear vision: to empower businesses with robust and innovative digital solutions. Founded by a team of passionate IT professionals, our company has grown from a modest startup into a leading provider of comprehensive IT and cybersecurity services. We pride ourselves on our client-centric approach, fostering long-term partnerships built on trust, transparency, and shared success. From our humble beginnings, we have remained committed to delivering excellence, adapting to the ever-evolving technological landscape to ensure our clients always stay ahead.</p>
+            </section>
+    
+            <section class="about-mission-vision">
+                <h2 class="about-subtitle">Our Mission</h2>
+                <p>Our mission is to safeguard and optimize our clients' digital environments. We are dedicated to providing cutting-edge IT and cybersecurity solutions that protect valuable assets, enhance operational efficiency, and drive sustainable growth. We aim to be a trusted partner, enabling businesses to confidently navigate the complexities of the digital world, secure in the knowledge that their technology infrastructure is in expert hands.</p>
+    
+                <h2 class="about-subtitle">Our Vision</h2>
+                <p>To be the leading innovator in integrated IT and cybersecurity solutions, recognized for our unwavering commitment to client success, technological excellence, and ethical practices. We envision a future where businesses of all sizes can harness the full potential of technology securely and efficiently, contributing to a more resilient and interconnected global digital ecosystem.</p>
+            </section>
+    
+            <section class="team-section">
+                <h2 class="section-title">Meet Our Team</h2>
+                <div class="team-members-container">
+                    <div class="team-member-card">
+                        <img src="ucn.jpeg" alt="Adam's Profile Picture" class="team-member-photo">
+                        <h3>Adam</h3>
+                        <p class="team-member-title">Director & Lead Technology Consultant</p>
+                        <p class="team-member-bio">Adam had a dream to start his new business, Unity Cyber Networks.
+                            Adam is now in charge of our day-to-day business operations. Adam oversees all the business and technical aspects/skills to improve our customer service.</p>
+                    </div>
+                    <div class="team-member-card">
+                        <img src="ucn.jpeg" alt="James' Profile Picture" class="team-member-photo">
+                        <h3>James</h3>
+                        <p class="team-member-title">Operations Manager & Technology Consultant</p>
+                        <p class="team-member-bio">James plays a crucial role in ensuring the smooth and efficient operation of all our services and projects. His expertise helps optimize workflows and enhance overall team productivity and customer satisfaction.</p>
+                    </div>
+                    </div>
+            </section>
+        </main>
+    </center>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="ucn.jpeg" alt="Company Logo" style="max-width: 100px; margin-bottom: 15px;">
+                <h3>Unity Cyber Networks</h3>
+                <p>Empowering businesses with robust and innovative digital solutions.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">Home</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="managed-services.html">Managed Services</a></li>
+                    <li><a href="hosted-services.html">Hosted Services</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>123 Cyber Street, Tech City, TC1 2AB</p>
+                <p>Email: info@unitycybernetworks.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Unity Cyber Networks. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

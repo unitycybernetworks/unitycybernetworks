@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Cyber Networks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="ucn.jpeg">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-header">
+            <div class="logo">
+                <img src="ucn.jpeg" alt="Unity Cyber Networks Logo">
+            </div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarCollapse">
+            <ul class="nav-links">
+               <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">HOME</a></li>
+                <li><a href="about-us.html">ABOUT</a></li>
+                <li><a href="managed-services.html">MANAGED SERVICES</a></li>
+                <li><a href="hosted-services.html">HOSTED SERVICES</a></li>
+                <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn get-started" id="getStartedBtn">GET STARTED</button>
+                <button class="btn help-desk" id="helpDeskBtn">SUPPORT DESK</button>
+
+                <div class="user-dropdown-container">
+                    <button id="loginButton" class="btn login-btn">
+                        <img src="ucn.jpeg" alt="User Icon" class="user-icon"> Log In
+                    </button>
+                    <button id="userDropdownToggle" class="btn user-icon-btn hidden">
+                        <img src="ucn.jpeg" alt="User Icon" class="user-icon">
+                        <span id="loggedInUsername" class="logged-in-username"></span>
+                        <span class="arrow-down"></span> </button>
+
+                    <div id="userDropdownMenu" class="dropdown-menu hidden">
+                        <a href="#">Profile</a>
+                        <a href="#">My Orders</a>
+                        <a href="#">My Addresses</a>
+                        <a href="#">My Wallet</a>
+                        <a href="#">My Account</a>
+                        <hr> <a href="#" id="logoutLink">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="login-form-container">
+                <h2>Login</h2>
+                <div id="loginMessage" class="message-display"></div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-login-btn">Login</button>
+                </form>
+                <p class="mt-20">Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <footer class="footer">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="ucn.jpeg" alt="Unity Cyber Networks Logo">
+                <span>Unity Cyber Networks</span>
+            </div>
+            <p>Your trusted partner in IT solutions, cybersecurity, and managed services. We empower your business with reliable and secure technology.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="managed-services.html">Managed Services</a></li>
+                <li><a href="hosted-services.html">Hosted Services</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+                <li><a href="managed-services.html">Managed IT Services</a></li>
+                <li><a href="hosted-services.html">Cloud Hosting</a></li>
+                <li><a href="#">Cyber Security Solutions</a></li>
+                <li><a href="#">Network Infrastructure</a></li>
+                <li><a href="#">Data Backup & Recovery</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>123 Cyber Street, Tech City, TC1 2AB</p>
+            <p>Email: info@unitycybernetworks.com</p>
+            <p>Phone: +123 456 7890</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><img src="facebook-icon.png" alt="Facebook" style="width:24px;height:24px;vertical-align:middle;"></a>
+                <a href="#" aria-label="Twitter"><img src="twitter-icon.png" alt="Twitter" style="width:24px;height:24px;vertical-align:middle;"></a>
+                <a href="#" aria-label="LinkedIn"><img src="linkedin-icon.png" alt="LinkedIn" style="width:24px;height:24px;vertical-align:middle;"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Unity Cyber Networks. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

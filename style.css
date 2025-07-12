@@ -1,0 +1,712 @@
+/* General Body and HTML Reset */
+html, body { /* Apply reset to both html and body */
+    font-family: Arial, sans-serif;
+    margin: 0; /* Ensure no default margin */
+    padding: 0; /* Ensure no default padding */
+    box-sizing: border-box;
+    width: 100%; /* Ensure body takes full width */
+    overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+}
+
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes logo to left, collapse/buttons to right */
+    align-items: center;
+    background-color: #5bc0de;
+    color: white;
+    padding: 10px 20px;
+    position: relative; /* Added for absolute positioning of the mobile menu */
+    z-index: 100; /* Ensure navbar is above other content */
+    width: 100%; /* Ensure navbar takes full width */
+    margin-top: 0; /* Explicitly set margin-top to 0 for navbar */
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+    /* Removed width: 100%; and justify-content: space-between; for desktop */
+    /* On desktop, it will naturally size to its content (the logo) */
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+    margin-right: 15px;
+}
+
+/* Hamburger Menu (for mobile) */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black; /* Changed to black for visibility */
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Navbar Collapse - KEY FOR CENTERING */
+.navbar-collapse {
+    display: flex; /* Enable flexbox for the collapse container */
+    justify-content: space-between; /* Distribute content with space between */
+    align-items: center; /* Vertically align items in the middle */
+    flex-grow: 1; /* Allow it to take available space */
+    flex-direction: row; /* Ensure row direction for desktop */
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex; /* Make nav-links a flex container */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    flex-wrap: nowrap; /* Prevent links from wrapping to the next line */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Add horizontal spacing between links */
+    white-space: nowrap; /* Prevent text inside links from wrapping */
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    margin-left: auto; /* Pushes the buttons to the far right */
+    display: flex; /* Make buttons a flex container for alignment */
+    align-items: center; /* Vertically align buttons */
+    gap: 10px; /* Space between buttons */
+}
+
+.btn {
+    width: 175px; /* Fixed width for all buttons to accommodate "Log In" */
+    height: 36px; /* Fixed height for all buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: flex; /* Use flexbox for internal content alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 0; /* Remove padding as width/height are fixed */
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.get-started {
+    background-color: darkblue;
+    color: white;
+}
+
+.help-desk {
+    background-color: green;
+    color: white;
+}
+
+/* User Dropdown */
+.user-dropdown-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    transform: none; /* Ensure no rotation is applied to this container */
+}
+
+.login-btn {
+    background-color: #5bc0de; /* Reverted to original grey */
+    color: white;
+    /* Inherits width, height, display, justify-content, align-items, flex-shrink from .btn */
+}
+
+.login-btn .user-icon {
+    height: 20px; /* Adjust size */
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.user-icon-btn {
+    background-color: #5bc0de;
+    color: white;
+    /* Inherits width, height, display, justify-content, align-items, flex-shrink from .btn */
+}
+
+.user-icon-btn .user-icon {
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.logged-in-username {
+    margin-right: 5px;
+}
+
+.arrow-down {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: #fff; /* Changed to white for better contrast with black text */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000; /* Increased z-index to ensure it's on top */
+    right: 0; /* Align dropdown to the right of its button */
+    border-radius: 5px;
+    overflow: hidden; /* For rounded corners with inner elements */
+    display: none; /* Hidden by default, JavaScript will toggle 'show' class */
+    transform: none !important; /* CRITICAL: Force no rotation on the menu itself */
+    top: calc(100% + 5px); /* Adjusted top to push it down slightly */
+}
+
+/* THIS IS THE CRUCIAL ADDITION */
+.dropdown-menu.show {
+    display: block; /* Make the dropdown visible when the 'show' class is present */
+}
+
+.dropdown-menu a {
+    color: black; /* Ensure text is black for visibility on white background */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1; /* Light grey on hover */
+}
+
+.dropdown-menu hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 5px 0;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #5bc0de;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more responsive */
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close-button {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-form-container {
+    padding: 20px;
+}
+
+.login-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submit-login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.submit-login-btn:hover {
+    background-color: #0056b3;
+}
+
+.message-display {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.message-display.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.message-display.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.signup-link {
+    color: white;
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Solutions Section Styling */
+.solutions-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f8f8f8; /* Light background for the section */
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #5bc0de; /* Match navbar color */
+    border-radius: 2px;
+}
+
+.solution-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+    justify-content: center; /* Center cards when there are fewer than full row */
+    gap: 30px; /* Space between cards */
+    max-width: 1200px; /* Max width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.solution-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 20px); /* Three columns on larger screens, accounting for gap */
+    min-width: 280px; /* Minimum width for a card before wrapping */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #5bc0de; /* Background for the icon */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white; /* Icon color if using font awesome */
+    font-size: 3em; /* Size if using font awesome */
+}
+
+.card-icon img {
+    max-width: 70%; /* Adjust size of icon image */
+    max-height: 70%;
+    filter: invert(100%); /* Make image white if it's black, adjust if icons are already white */
+}
+
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card-description {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows description to take available space, pushing button to bottom */
+}
+
+.read-more-btn {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: auto; /* Override general .btn width */
+    height: auto; /* Override general .btn height */
+    min-width: unset; /* Remove min-width from general .btn */
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #333; /* Dark background */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px; /* Space between columns */
+}
+
+.footer-section {
+    flex: 1 1 auto; /* Allow sections to grow and shrink */
+    min-width: 180px; /* Minimum width for sections before wrapping */
+    margin-bottom: 20px; /* Space below sections on smaller screens */
+}
+
+/* Image within footer section */
+.footer-section img {
+    max-width: 100%; /* Make image responsive to its container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto 15px auto; /* Center image and add some bottom margin */
+    border-radius: 5px; /* Slightly round corners if desired */
+}
+
+
+.footer-section h3 {
+    color: #5bc0de; /* Highlight color for headings */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #5bc0de; /* Highlight on hover */
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #5bc0de; /* Highlight on hover */
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444; /* Separator line */
+    font-size: 0.85em;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .solution-card {
+        flex: 1 1 calc(50% - 30px); /* Two columns on medium screens */
+    }
+
+    .footer-content {
+        justify-content: center; /* Center footer sections when wrapping */
+        text-align: left; /* Align text left within sections */
+    }
+
+    .footer-section {
+        min-width: 250px; /* Allow more width for two columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar adjustments for mobile */
+    .navbar {
+        padding: 10px 10px; /* Adjusted horizontal padding to 10px for mobile for better balance */
+    }
+
+    .navbar-header {
+        margin-left: 0; /* Ensures no negative margin interferes */
+    }
+
+    /* Main video section mobile specific styles */
+    .main {
+        height: 60vh; /* Make the main container height responsive to viewport height */
+    }
+    .main-content {
+        padding: 15px;
+        /* Adjusted padding to prevent content from touching edges */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .main .header2 {
+        font-size: 1.5em;
+        margin-top: 100px; /* Adjusted margin for smaller screens */
+    }
+    .main .para1 {
+        font-size: 0.9em;
+    }
+
+    /* Navbar Header on Mobile */
+    .navbar-header {
+        width: 100%; /* Ensure header takes full width on mobile */
+        justify-content: space-between; /* Space out logo and hamburger */
+    }
+
+    /* Hamburger Menu on Mobile */
+    .hamburger-menu {
+        display: block; /* Ensure it's visible on mobile */
+        z-index: 101; /* Ensure it's above the navbar-collapse when open */
+    }
+
+    /* Hamburger to X Transformation */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: white; /* Color when active */
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0; /* Hide middle bar */
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: white; /* Color when active */
+    }
+
+    /* Mobile menu overlay styles */
+    .navbar-collapse {
+        position: fixed; /* Changed to fixed for full screen overlay */
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 99;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: none;
+        /* Removed max-height, overflow properties here as fixed position handles it */
+    }
+    .navbar-collapse.show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        /* Removed max-height, overflow here */
+        padding: 10px 0; /* Add some padding inside the menu */
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 80%; /* Adjusted width for better centering */
+        text-align: center;
+        padding: 10px 0;
+    }
+    .nav-links li {
+        margin: 15px 0;
+        width: 100%;
+    }
+    .nav-links a {
+        color: white;
+        font-size: 1.2em;
+    }
+    .nav-buttons {
+        flex-direction: column;
+        width: 80%; /* Adjusted width for better centering */
+        margin-left: 0;
+        padding-bottom: 10px;
+    }
+    .nav-buttons .btn {
+        width: 100%;
+        margin: 10px auto;
+    }
+    .user-dropdown-container {
+        width: 100%;
+        margin: 10px auto;
+        transform: none; /* Ensure no rotation is applied to this container on mobile */
+    }
+    .dropdown-menu {
+        /* Removed position: static; to ensure it remains absolute */
+        width: 100%; /* Make it take full width of its parent container */
+        box-shadow: none; /* Remove shadow for mobile overlay */
+        background-color: #333; /* Darker background for better contrast on mobile */
+        right: 0; /* Keep it aligned to the right, relative to its container */
+        padding: 0;
+        top: 100%; /* Keep it below the button */
+        left: auto; /* Ensure it's not pushed left by default */
+        display: none; /* Keep this here as the default */
+        transform: none !important; /* CRITICAL: Force no rotation on the menu itself */
+    }
+    .dropdown-menu.show { /* Ensure this rule is also applied in mobile */
+        display: block;
+    }
+    .dropdown-menu a {
+        color: white; /* White text for better visibility on dark background */
+        padding: 12px 20px;
+    }
+    .dropdown-menu hr {
+        border-top-color: rgba(255, 255, 255, 0.5);
+    }
+    .hamburger-menu.active .bar {
+        background-color: white;
+    }
+    /* Solutions section mobile specific styles */
+    .solutions-section {
+        padding: 40px 15px;
+    }
+    .solution-card {
+        flex: 1 1 90%; /* Single column on small screens */
+        min-width: unset;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .card-title {
+        font-size: 1.3em;
+    }
+    .card-description {
+        font-size: 0.9em;
+    }
+
+    /* Footer adjustments for mobile */
+    .footer-section {
+        flex: 1 1 100%; /* Stack sections vertically on small screens */
+        text-align: center;
+    }
+
+    .footer-section ul {
+        margin-bottom: 20px; /* Add space below lists when stacked */
+    }
+}
+
+@media (max-width: 480px) {
+    .main .header2 {
+        font-size: 1.2em; /* Even smaller on very small screens */
+        margin-top: 80px;
+    }
+    .main .para1 {
+        font-size: 0.8em; /* Even smaller on very small screens */
+    }
+    .section-title {
+        font-size: 1.8em;
+    }
+    .solution-card {
+        padding: 20px;
+    }
+    .card-title {
+        font-size: 1.2em;
+    }
+    .card-description {
+        font-size: 0.85em;
+    }
+}
