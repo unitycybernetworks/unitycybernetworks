@@ -28,13 +28,31 @@
            text-align: left;
            padding: 20px;
        }
+       /* Changed color to #FFFFFF */
        .main .header2 {
-           color: yellow;
+           color: #FFFFFF;
            margin-top: 150px;
        }
+       /* Changed color to #FFFFFF */
        .main .para1 {
-           color: yellow;
+           color: #FFFFFF;
            font-size: larger;
+       }
+       /* Additional styles for the .main-content to improve readability */
+       .main-content h2, .main-content p {
+           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a subtle shadow for better contrast */
+       }
+       @media (max-width: 768px) {
+           .main .header2 {
+               font-size: 1.5em; /* Adjust font size for mobile */
+               margin-top: 100px; /* Adjust top margin for mobile */
+           }
+           .main .para1 {
+               font-size: medium; /* Adjust font size for mobile */
+           }
+           .main {
+               height: 400px; /* Adjust main section height for mobile */
+           }
        }
    </style>
 </head>
@@ -61,35 +79,30 @@
             </ul>
             <div class="nav-buttons">
                 <button class="btn get-started" id="getStartedBtn">GET STARTED</button>
-                <button class="btn help-desk" id="helpDeskBtn">SUPPORT DESK</button>
-
+                <button class="btn help-desk" id="helpDeskBtn">HELP DESK</button>
                 <div class="user-dropdown-container">
-                    <button id="loginButton" class="btn login-btn">
-                        <img src="ucn.jpeg" alt="User Icon" class="user-icon"> Log In
+                    <button class="btn login-btn" id="loginButton">LOG IN</button>
+                    <button class="btn user-icon-btn hidden" id="userDropdownToggle">
+                        <img src="user-icon.jpeg" alt="User Icon" class="user-icon">
+                        <span id="loggedInUsername"></span>
+                        <i class="arrow-down"></i>
                     </button>
-                    <button id="userDropdownToggle" class="btn user-icon-btn hidden">
-                        <img src="ucn.jpeg" alt="User Icon" class="user-icon">
-                        <span id="loggedInUsername" class="logged-in-username"></span>
                     <div class="dropdown-menu hidden" id="userDropdownMenu">
                         <a href="#">Profile</a>
-                        <a href="#">My Orders</a>
-                        <a href="#">My Addresses</a>
-                        <a href="#">My Wallet</a>
-                        <a href="#">My Account</a>
+                        <a href="#">Settings</a>
                         <hr>
-                        <a href="#" id="logoutLink">Log Out</a>
+                        <a href="#" id="logoutLink">Logout</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div id="loginModal" class="modal">
+    <div class="modal" id="loginModal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <div class="login-form-container">
                 <h2>Login</h2>
-                <div id="loginMessage" class="message-display"></div>
                 <form id="loginForm">
                     <div class="form-group">
                         <label for="username">Username:</label>
@@ -100,129 +113,112 @@
                         <input type="password" id="password" name="password" required>
                     </div>
                     <button type="submit" class="submit-login-btn">Login</button>
+                    <p class="message-display mt-20" id="loginMessage"></p>
                 </form>
-                <p class="mt-20">Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
-            </div>
-        </div>
-    </div>
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div class="login-form-container">
-                <h2>Login</h2>
-                <div id="loginMessage" class="message-display"></div>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="submit-login-btn">Login</button>
-                </form>
-                <p class="mt-20">Don't have an account? <a href="#" class="signup-link">Sign Up</a></p>
             </div>
         </div>
     </div>
 
-<div class="main">
-    <video autoplay loop muted playsinline class="background-video">
-        <source src="london-skylines.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="main-content">
-        <h1 class="header2">UCN, Your Personal IT Provider</h1>
-        <p class="para1">
-            At Unity Cyber Networks (UCN), we believe IT should be personal. Founded in 2025, our London- <br>
-            based team, led by Director & Lead Technology Consultant Adam and Operations Manager & <br>
-            Technology Consultant James, brings over a decade of expertise in IT Services with knowledge of Hosted & Managed solutions. <br>
-            We are the No.1 trusted IT partner
-        </p>
-    </div>
-</div>
-
-<section class="solutions-section">
-    <h2 class="section-title">Our Solutions</h2>
-    <div class="solution-cards-container">
-        <div class="solution-card">
-            <div class="card-icon">
-                <img src="ucn.jpeg" alt="Hosted Solutions Icon"> </div>
-            <h3 class="card-title">Hosted Solutions</h3>
-            <p class="card-description">Leverage the power of the cloud for scalability, flexibility, and cost-efficiency. Migrate and manage your infrastructure seamlessly.</p>
-            <button class="btn read-more-btn">Read More</button>
-        </div>
-        <div class="solution-card">
-            <div class="card-icon">
-                <img src="ucn.jpeg" alt="Managed Solutions Icon"> </div>
-            <h3 class="card-title">Managed Solutions</h3>
-            <p class="card-description">Delegate your IT operations to us, ensuring proactive support, minimal downtime, and strategic IT planning for your future.</p>
-            <button class="btn read-more-btn">Read More</button>
-        </div>
-        <div class="solution-card">
-            <div class="card-icon">
-                <img src="ucn.jpeg" alt="Cyber Security Icon"> </div>
-            <h3 class="card-title">Cyber Security</h3>
-            <p class="card-description">Protect your business from evolving cyber threats with our comprehensive security solutions, including threat detection and incident response.</p>
-            <button class="btn read-more-btn">Read More</button>
-        </div>
-        <div class="solution-card">
-            <div class="card-icon">
-                <img src="ucn.jpeg" alt="infrastructure"> </div>
-            <h3 class="card-title">infrastructure</h3>
-            <p class="card-description">Protect your business from evolving cyber threats with our comprehensive security solutions, including threat detection and incident response.</p>
-            <button class="btn read-more-btn">Read More</button>
+    <div class="main">
+        <video autoplay muted loop class="background-video">
+            <source src="london-skylines.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="main-content">
+            <h2 class="header2">Unity Cyber Networks</h2>
+            <p class="para1">The digital world has revolutionized the way we live and work, offering unparalleled opportunities for growth and connection. At Unity Cyber Networks, we believe that every individual and business deserves to thrive in this landscape, equipped with secure, reliable, and cutting-edge digital solutions.</p>
         </div>
     </div>
-</section>
 
-    <script src="script.js"></script>
+    <section class="solutions-section">
+        <h2 class="section-title">Our Solutions</h2>
+        <div class="solution-cards-container">
+            <div class="solution-card">
+                <div class="card-icon">
+                    <img src="managed.png" alt="Managed Services">
+                </div>
+                <h3 class="card-title">Managed IT Services</h3>
+                <p class="card-description">Comprehensive management of your IT infrastructure, ensuring peak performance and reliability 24/7. Focus on your core business while we handle your technology needs.</p>
+                <a href="managed-services.html" class="read-more-btn">Read More</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <img src="hosted.png" alt="Hosted Services">
+                </div>
+                <h3 class="card-title">Hosted Services</h3>
+                <p class="card-description">Secure and scalable cloud hosting solutions tailored to your business needs, offering robust data storage, application hosting, and reliable access from anywhere.</p>
+                <a href="hosted-services.html" class="read-more-btn">Read More</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <img src="cyber.png" alt="Cyber Security">
+                </div>
+                <h3 class="card-title">Cyber Security Solutions</h3>
+                <p class="card-description">Protect your digital assets with our advanced cyber security measures, including threat detection, data encryption, and proactive defense strategies against evolving threats.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <img src="network.png" alt="Network Infrastructure">
+                </div>
+                <h3 class="card-title">Network Infrastructure</h3>
+                <p class="card-description">Design, implementation, and optimization of robust network infrastructures to support seamless communication and high-speed data transfer within your organization.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <img src="data.png" alt="Data Backup">
+                </div>
+                <h3 class="card-title">Data Backup & Recovery</h3>
+                <p class="card-description">Reliable data backup and rapid recovery solutions to safeguard your critical information, ensuring business continuity even in the face of unexpected data loss.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+            <div class="solution-card">
+                <div class="card-icon">
+                    <img src="247.png" alt="24/7 Support">
+                </div>
+                <h3 class="card-title">24/7 Expert Support</h3>
+                <p class="card-description">Our dedicated team of IT professionals is available around the clock to provide immediate assistance and resolve any technical issues, ensuring uninterrupted operations.</p>
+                <a href="#" class="read-more-btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
-        <div class="footer-section">
-            <div class="footer-logo">
-                <span>Unity Cyber Networks</span>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="ucn.jpeg" alt="Unity Cyber Networks Logo">
+                <h3>Unity Cyber Networks</h3>
+                <p>Empowering businesses with robust and innovative digital solutions.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
-            <p>Your trusted partner in IT solutions, cybersecurity, and managed services. We empower your business with reliable and secure technology.</p>
-        </div>
-
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="managed-services.html">Managed Services</a></li>
-                <li><a href="hosted-services.html">Hosted Services</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h3>Services</h3>
-            <ul>
-                <li><a href="managed-services.html">Managed IT Services</a></li>
-                <li><a href="hosted-services.html">Cloud Hosting</a></li>
-                <li><a href="#">Cyber Security Solutions</a></li>
-                <li><a href="#">Network Infrastructure</a></li>
-                <li><a href="#">Data Backup & Recovery</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h3>Contact Us</h3>
-            <p>123 Cyber Street, Tech City, TC1 2AB</p>
-            <p>Email: info@unitycybernetworks.com</p>
-            <p>Phone: +123 456 7890</p>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><img src="facebook-icon.png" alt="Facebook" style="width:24px;height:24px;vertical-align:middle;"></a>
-                <a href="#" aria-label="Twitter"><img src="twitter-icon.png" alt="Twitter" style="width:24px;height:24px;vertical-align:middle;"></a>
-                <a href="#" aria-label="LinkedIn"><img src="linkedin-icon.png" alt="LinkedIn" style="width:24px;height:24px;vertical-align:middle;"></a>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="https://unitycybernetworks.github.io/unitycybernetworks/">Home</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="managed-services.html">Managed Services</a></li>
+                    <li><a href="hosted-services.html">Hosted Services</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>123 Cyber Street, Tech City, TC1 2AB</p>
+                <p>Email: info@unitycybernetworks.com</p>
+                <p>Phone: +123 456 7890</p>
             </div>
         </div>
-
         <div class="footer-bottom">
-            &copy; 2025 Unity Cyber Networks. All rights reserved.
+            <p>&copy; 2025 Unity Cyber Networks. All rights reserved.</p>
         </div>
     </footer>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
