@@ -574,12 +574,18 @@ html, body { /* Apply reset to both html and body */
         opacity: 0;
         visibility: hidden;
         box-shadow: none;
+        box-sizing: border-box; /* Ensure padding is included in the height calculation */
+        padding-top: 60px; /* Add padding from the top to account for the fixed navbar itself */
+        padding-bottom: 20px; /* Add some padding at the bottom */
     }
     .navbar-collapse.show {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
         padding: 10px 0; /* Add some padding inside the menu */
+        max-height: 100vh; /* Limit height to viewport height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
     .nav-links {
         flex-direction: column;
@@ -606,19 +612,25 @@ html, body { /* Apply reset to both html and body */
         margin: 10px auto;
     }
     .user-dropdown-container {
-        width: 100%;
+        width: 100%; /* Ensure container takes full width for centering */
         margin: 10px auto;
         transform: none; /* Ensure no rotation is applied to this container on mobile */
+        display: flex; /* Use flex to center login button */
+        justify-content: center; /* Center login button */
+    }
+    .login-btn {
+        width: auto; /* Allow button to size to its content */
+        max-width: 175px; /* Maintain the desktop max-width if desired */
     }
     .dropdown-menu {
-        /* REMOVED 'width: 100%;' from here to prevent full-width stretching */
-        box-shadow: none; /* Remove shadow for mobile overlay */
+        min-width: 160px; /* Ensure a reasonable minimum width */
+        max-width: 90%; /* Prevent it from being too wide on small screens */
+        left: 50%; /* Center the dropdown relative to the dropdown container */
+        transform: translateX(-50%) !important; /* Adjust for centering */
+        top: calc(100% + 5px); /* Keep it slightly below the button */
         background-color: #333; /* Darker background for better contrast on mobile */
-        left: 0; /* Correct alignment to the left */
-        padding: 0;
-        top: 100%; /* Keep it below the button */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); /* Add a subtle shadow */
         display: none; /* Keep this here as the default */
-        transform: none !important; /* CRITICAL: Force no rotation on the menu itself */
     }
     .dropdown-menu.show { /* Ensure this rule is also applied in mobile */
         display: block;
